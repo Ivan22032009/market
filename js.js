@@ -1,8 +1,6 @@
 let productGrid = document.getElementById('product-grid');
 let productsArray = [];
 let url = 'https://my-json-server.typicode.com/Ivan22032009/market';
-
-
 fetch(url + '/products')
     .then(async function (response) {
         if (!response.ok) {
@@ -25,8 +23,47 @@ fetch(url + '/products')
             productGrid.appendChild(pElem); // Додаємо продукт у DOM
         });
     });
-
-
+let cardProd = document.getElementById('card-product');
+let card = [];
+if (localStorage.getItem('card')){
+    card = JSON.parse(localStorage.getItem('card'));
+    drawCardProducts();
+}
 function fun() {
     console.log('Функція')
+    cardProd.classList.toggle('hide')
+}
+function addProductTocard(id){
+    let product = productsArray.find(function (p){
+        return p.id == id;
+    })
+    card.push(product);
+    drawCardProducts();
+    localStorage.setItem("card", JSON.stringify(card));
+
+    document.getElementById('card-button').classList.add('active');
+    setTimeout(function(){
+        document.getElementById('card-button').classList.remove('active')
+    },500);
+}
+function drawCardProducts(){
+    if(card.length === 0) return cardProd.innerHTML = 'Empty';
+    cardProd.innerHTML = null;
+    let sum = 0;
+    card.forEach(function(p){
+        cardProd.innerHTML += `
+        <p><img src = "${p.photo_url}"> ${p.price} | ${p.price} $ </p>
+        <hr>
+        `;
+        sum +=p.price;
+    });
+    cardProd.innerHTML +=`
+    <p>Total Price: ${sum}$</p>
+    <button onclick="buyAll()">Buy All</button>
+    `;
+}
+function buyAll(){
+    card = []
+    cardProd.innerHTML = 'Грошики Заплалити';
+    localStorage.setItem("card", '[]');
 }
