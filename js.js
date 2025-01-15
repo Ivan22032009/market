@@ -1,6 +1,6 @@
 let productGrid = document.getElementById('product-grid');
 let productsArray = [];
-const url = 'https://market-530f.restdb.io/rest/products';
+const url = 'https://market-530f.restdb.io/rest';
 
 const my_headers = {
     "Content-Type": "application/json",
