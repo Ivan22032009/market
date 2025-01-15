@@ -4,7 +4,7 @@ const url = 'https://market-530f.restdb.io/rest/products';
 
 const my_headers = {
     "Content-Type": "application/json",
-    "x-apikey": 2ecfb867a93c592e175447f039f1ba47f702e,
+    "x-apikey": "6787e46177327af7a35a5467",
     "cache-control": "no-cache",
 };
 
