@@ -82,10 +82,10 @@ button{
     margin: 0.5rem;
 }
 .product{
-    background-color: rgba(0, 0, 0, 0,5);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem;
     border-radius: 1rem;
-    color: #fff;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -99,5 +99,5 @@ button{
 }
 .product a{
     margin: 5px 0;
-    color: #fff;
+    color: #ffffff;
 }
